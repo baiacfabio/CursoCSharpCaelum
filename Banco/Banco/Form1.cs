@@ -42,6 +42,9 @@ namespace Banco
 
             comboContas.Items.Add(conta);
             comboDestino.Items.Add(conta);
+
+            comboContas.DisplayMember = "Titular";
+            comboDestino.DisplayMember = "Titular";
         }
 
 

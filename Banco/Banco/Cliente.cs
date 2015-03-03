@@ -39,6 +39,9 @@ namespace Banco.Usuarios
             return false;
         }
 
-
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
 }
