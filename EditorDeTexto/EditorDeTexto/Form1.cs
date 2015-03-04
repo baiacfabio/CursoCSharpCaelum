@@ -79,18 +79,44 @@ namespace EditorDeTexto
 
         private void buttonToUpper_Click(object sender, EventArgs e)
         {
-            string conteudo = textBoxConteudo.Text;
-            conteudo = conteudo.ToUpper();
+            int inicioSelecao = textBoxConteudo.SelectionStart;
+            int tamanhoSelecao = textBoxConteudo.SelectionLength;
 
-            textBoxConteudo.Text = conteudo;
+            // agora vamos utilizar o Substring para pegar o texto selecionado
+            string textoSelecionado = textBoxConteudo.Text
+                            .Substring(inicioSelecao, tamanhoSelecao);
+
+            // além do texto selecionado, precisamos do texto antes da seleção:
+            string antes = textBoxConteudo.Text
+                            .Substring(0, inicioSelecao);
+
+            // e também do texto depois
+            string depois = textBoxConteudo.Text
+                            .Substring(inicioSelecao + tamanhoSelecao);
+
+            // E agora só precisamos redefinir o campo texto
+            textBoxConteudo.Text = antes + textoSelecionado.ToUpper() + depois;
         }
 
         private void buttonToLower_Click(object sender, EventArgs e)
         {
-            string conteudo = textBoxConteudo.Text;
-            conteudo = conteudo.ToLower();
+            int inicioSelecao = textBoxConteudo.SelectionStart;
+            int tamanhoSelecao = textBoxConteudo.SelectionLength;
 
-            textBoxConteudo.Text = conteudo;
+            // agora vamos utilizar o Substring para pegar o texto selecionado
+            string textoSelecionado = textBoxConteudo.Text
+                            .Substring(inicioSelecao, tamanhoSelecao);
+
+            // além do texto selecionado, precisamos do texto antes da seleção:
+            string antes = textBoxConteudo.Text
+                            .Substring(0, inicioSelecao);
+
+            // e também do texto depois
+            string depois = textBoxConteudo.Text
+                            .Substring(inicioSelecao + tamanhoSelecao);
+
+            // E agora só precisamos redefinir o campo texto
+            textBoxConteudo.Text = antes + textoSelecionado.ToLower() + depois;
         }
     }
 }
