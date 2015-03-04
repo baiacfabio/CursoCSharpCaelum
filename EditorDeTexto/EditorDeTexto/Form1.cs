@@ -22,29 +22,23 @@ namespace EditorDeTexto
         {
             if (File.Exists("texto.txt"))
             {
-                Stream entrada = File.Open("texto.txt", FileMode.Open);
-                StreamReader leitor = new StreamReader(entrada);
-
-                textBoxConteudo.Text = leitor.ReadToEnd();
-                /*string linha = leitor.ReadLine();
-                while (linha != null)
+                using(Stream entrada = File.Open("texto.txt", FileMode.Open))
+                using(StreamReader leitor = new StreamReader(entrada))
                 {
-                    textBoxConteudo.Text += linha;
-                    linha = leitor.ReadLine();
-                }*/
-
-                leitor.Close();
-                entrada.Close();
+                    textBoxConteudo.Text = leitor.ReadToEnd();
+                }
             }
         }
 
         private void buttonGravar_Click(object sender, EventArgs e)
         {
-            Stream saida = File.Open("texto.txt", FileMode.Create);
-            StreamWriter escritor = new StreamWriter(saida);
-            escritor.Write(textBoxConteudo.Text);
-            escritor.Close();
-            saida.Close();
+            using (Stream saida = File.Open("texto.txt", FileMode.Create))
+            using (StreamWriter escritor = new StreamWriter(saida))
+            {
+                escritor.Write(textBoxConteudo.Text);
+            }
+
+            
         }
     }
 }
