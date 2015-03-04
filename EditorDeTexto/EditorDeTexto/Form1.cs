@@ -56,5 +56,25 @@ namespace EditorDeTexto
                 MessageBox.Show("Texto não encontrado");
             }
         }
+
+        private void buttonReplace_Click(object sender, EventArgs e)
+        {
+            string busca = textBoxBusca.Text;
+            string replacement = textBoxReplace.Text;
+
+            string textoDoEditor = textBoxConteudo.Text;
+
+            textoDoEditor = textoDoEditor.Replace(busca, replacement);
+
+            //atualiza o editor
+            textBoxConteudo.Text = textoDoEditor;
+
+            //atualiza o texto no arquivo
+            using (Stream saida = File.Open("texto.txt", FileMode.Create))
+            using (StreamWriter escritor = new StreamWriter(saida))
+            {
+                escritor.Write(textoDoEditor);
+            }
+        }
     }
 }
