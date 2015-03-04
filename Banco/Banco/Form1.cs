@@ -174,26 +174,25 @@ namespace Banco
         {
             string nomeTitular = textBoxBuscaTitular.Text;
 
-            
             try
             {
                 //faz a busca no dicionario
                 Conta conta = dicionario[nomeTitular];
 
-                //atualizar o item selecionado do comboContas:
+                //atualizar o item selecionado do comboContas
+                //isso ja traz os dados pra preencher os campos da conta no form
                 comboContas.SelectedItem = conta;
             }
             catch (Exception)
             {
                 MessageBox.Show("Titular não encontrado");
             }
+        }
 
-
-            
-
-            //textBoxTitular.Text = conta.Titular.Nome;
-            //textBoxNumero.Text = Convert.ToString(conta.Numero);
-            //textBoxSaldo.Text = Convert.ToString(conta.Saldo);
+        private void buttonRelatorios_Click(object sender, EventArgs e)
+        {
+            FormRelatorios form = new FormRelatorios(this.contas);
+            form.ShowDialog();
         }
 
     }

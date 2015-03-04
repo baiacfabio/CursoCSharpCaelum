@@ -50,6 +50,7 @@
             this.labelBuscaTitular = new System.Windows.Forms.Label();
             this.textBoxBuscaTitular = new System.Windows.Forms.TextBox();
             this.buttonBuscaTitular = new System.Windows.Forms.Button();
+            this.buttonRelatorios = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBoxBusca.SuspendLayout();
             this.SuspendLayout();
@@ -130,6 +131,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonRelatorios);
             this.groupBox1.Controls.Add(this.buttonCalcImpostos);
             this.groupBox1.Controls.Add(this.buttonNovaConta);
             this.groupBox1.Controls.Add(this.buttonTransferir);
@@ -152,7 +154,7 @@
             // 
             // buttonCalcImpostos
             // 
-            this.buttonCalcImpostos.Location = new System.Drawing.Point(89, 217);
+            this.buttonCalcImpostos.Location = new System.Drawing.Point(6, 217);
             this.buttonCalcImpostos.Name = "buttonCalcImpostos";
             this.buttonCalcImpostos.Size = new System.Drawing.Size(155, 23);
             this.buttonCalcImpostos.TabIndex = 12;
@@ -268,6 +270,16 @@
             this.buttonBuscaTitular.UseVisualStyleBackColor = true;
             this.buttonBuscaTitular.Click += new System.EventHandler(this.buttonBuscaTitular_Click);
             // 
+            // buttonRelatorios
+            // 
+            this.buttonRelatorios.Location = new System.Drawing.Point(167, 217);
+            this.buttonRelatorios.Name = "buttonRelatorios";
+            this.buttonRelatorios.Size = new System.Drawing.Size(155, 23);
+            this.buttonRelatorios.TabIndex = 13;
+            this.buttonRelatorios.Text = "Relatorios";
+            this.buttonRelatorios.UseVisualStyleBackColor = true;
+            this.buttonRelatorios.Click += new System.EventHandler(this.buttonRelatorios_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,6 +322,7 @@
         private System.Windows.Forms.Button buttonBuscaTitular;
         private System.Windows.Forms.Label labelBuscaTitular;
         private System.Windows.Forms.TextBox textBoxBuscaTitular;
+        private System.Windows.Forms.Button buttonRelatorios;
     }
 }
 
