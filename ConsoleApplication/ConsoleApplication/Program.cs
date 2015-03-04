@@ -13,19 +13,20 @@ namespace ConsoleApplication
         {
             Console.WriteLine("Mensagem que vai para o terminal");
 
-            TextReader leitor = Console.In;
-            TextWriter escritor = Console.Out;
-
-            string linha = leitor.ReadLine();
-            
-
-            while (linha != null)
+            using (TextReader leitor = Console.In)
+            using (TextWriter escritor = Console.Out)
             {
-                linha = leitor.ReadLine();
+                // usa o leitor
+                string linha = leitor.ReadLine();
 
-                //escreve o que o usuario digita
-                escritor.WriteLine("You say: "+linha);
+                while (linha != null)
+                {
+                    linha = leitor.ReadLine();
 
+                    //escreve o que o usuario digita
+                    escritor.WriteLine("You say: " + linha);
+
+                }
             }
         }
     }
