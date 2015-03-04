@@ -18,6 +18,8 @@ namespace Banco
         private List<Conta> contas; 
         private int numeroDeContas;
 
+        private Dictionary<string, Conta> dicionario;
+
 
         public Form1()
         {
@@ -36,6 +38,9 @@ namespace Banco
 
             comboContas.DisplayMember = "Titular";
             comboDestino.DisplayMember = "Titular";
+
+            //atualiza o dicionario
+            this.dicionario.Add(conta.Titular.Nome, conta);
         }
 
 
@@ -88,6 +93,7 @@ namespace Banco
         private void Form1_Load(object sender, EventArgs e)
         {
             this.contas = new List<Conta>();
+            this.dicionario = new Dictionary<string, Conta>();
 
             Conta c1 = new ContaPoupanca();
             c1.Titular = new Cliente("Fabio");
@@ -162,6 +168,32 @@ namespace Banco
             {
                 MessageBox.Show("Conta não tributável");
             }
+        }
+
+        private void buttonBuscaTitular_Click(object sender, EventArgs e)
+        {
+            string nomeTitular = textBoxBuscaTitular.Text;
+
+            
+            try
+            {
+                //faz a busca no dicionario
+                Conta conta = dicionario[nomeTitular];
+
+                //atualizar o item selecionado do comboContas:
+                comboContas.SelectedItem = conta;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Titular não encontrado");
+            }
+
+
+            
+
+            //textBoxTitular.Text = conta.Titular.Nome;
+            //textBoxNumero.Text = Convert.ToString(conta.Numero);
+            //textBoxSaldo.Text = Convert.ToString(conta.Saldo);
         }
 
     }
