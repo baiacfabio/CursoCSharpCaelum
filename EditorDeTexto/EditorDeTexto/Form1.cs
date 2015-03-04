@@ -76,5 +76,21 @@ namespace EditorDeTexto
                 escritor.Write(textoDoEditor);
             }
         }
+
+        private void buttonToUpper_Click(object sender, EventArgs e)
+        {
+            string conteudo = textBoxConteudo.Text;
+            conteudo = conteudo.ToUpper();
+
+            textBoxConteudo.Text = conteudo;
+        }
+
+        private void buttonToLower_Click(object sender, EventArgs e)
+        {
+            string conteudo = textBoxConteudo.Text;
+            conteudo = conteudo.ToLower();
+
+            textBoxConteudo.Text = conteudo;
+        }
     }
 }

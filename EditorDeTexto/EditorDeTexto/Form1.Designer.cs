@@ -37,6 +37,8 @@
             this.buttonReplace = new System.Windows.Forms.Button();
             this.textBoxReplace = new System.Windows.Forms.TextBox();
             this.labelReplace = new System.Windows.Forms.Label();
+            this.buttonToUpper = new System.Windows.Forms.Button();
+            this.buttonToLower = new System.Windows.Forms.Button();
             this.groupBoxFindReplace.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             // 
             // buttonGravar
             // 
-            this.buttonGravar.Location = new System.Drawing.Point(13, 208);
+            this.buttonGravar.Location = new System.Drawing.Point(13, 161);
             this.buttonGravar.Name = "buttonGravar";
             this.buttonGravar.Size = new System.Drawing.Size(75, 23);
             this.buttonGravar.TabIndex = 1;
@@ -125,11 +127,33 @@
             this.labelReplace.TabIndex = 4;
             this.labelReplace.Text = "Replace";
             // 
+            // buttonToUpper
+            // 
+            this.buttonToUpper.Location = new System.Drawing.Point(13, 190);
+            this.buttonToUpper.Name = "buttonToUpper";
+            this.buttonToUpper.Size = new System.Drawing.Size(75, 23);
+            this.buttonToUpper.TabIndex = 3;
+            this.buttonToUpper.Text = "ToUpper";
+            this.buttonToUpper.UseVisualStyleBackColor = true;
+            this.buttonToUpper.Click += new System.EventHandler(this.buttonToUpper_Click);
+            // 
+            // buttonToLower
+            // 
+            this.buttonToLower.Location = new System.Drawing.Point(12, 219);
+            this.buttonToLower.Name = "buttonToLower";
+            this.buttonToLower.Size = new System.Drawing.Size(75, 23);
+            this.buttonToLower.TabIndex = 4;
+            this.buttonToLower.Text = "ToLower";
+            this.buttonToLower.UseVisualStyleBackColor = true;
+            this.buttonToLower.Click += new System.EventHandler(this.buttonToLower_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 261);
+            this.Controls.Add(this.buttonToLower);
+            this.Controls.Add(this.buttonToUpper);
             this.Controls.Add(this.groupBoxFindReplace);
             this.Controls.Add(this.buttonGravar);
             this.Controls.Add(this.textBoxConteudo);
@@ -154,6 +178,8 @@
         private System.Windows.Forms.Button buttonReplace;
         private System.Windows.Forms.TextBox textBoxReplace;
         private System.Windows.Forms.Label labelReplace;
+        private System.Windows.Forms.Button buttonToUpper;
+        private System.Windows.Forms.Button buttonToLower;
     }
 }
 
