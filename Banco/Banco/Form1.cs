@@ -15,7 +15,7 @@ namespace Banco
     public partial class Form1 : Form
     {
 
-        private Conta[] contas;
+        private List<Conta> contas; 
         private int numeroDeContas;
 
 
@@ -26,16 +26,7 @@ namespace Banco
 
         public void AdicionaConta(Conta conta)
         {
-            Conta[] maisContas = new Conta[this.numeroDeContas + 1];
-
-            //adiciona as contas do array antigo ao novo array maior
-            int pos = 0;
-            foreach(Conta c in this.contas){
-                maisContas[pos] = c;
-                pos++;
-            }
-            this.contas = maisContas;
-
+            this.contas.Add(conta);
 
             this.contas[this.numeroDeContas] = conta;
             this.numeroDeContas++;
@@ -96,7 +87,7 @@ namespace Banco
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.contas = new Conta[1];
+            this.contas = new List<Conta>();
 
             Conta c1 = new ContaPoupanca();
             c1.Titular = new Cliente("Fabio");
