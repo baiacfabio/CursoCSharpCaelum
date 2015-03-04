@@ -24,12 +24,15 @@ namespace EditorDeTexto
             {
                 Stream entrada = File.Open("texto.txt", FileMode.Open);
                 StreamReader leitor = new StreamReader(entrada);
-                string linha = leitor.ReadLine();
+
+                textBoxConteudo.Text = leitor.ReadToEnd();
+                /*string linha = leitor.ReadLine();
                 while (linha != null)
                 {
                     textBoxConteudo.Text += linha;
                     linha = leitor.ReadLine();
-                }
+                }*/
+
                 leitor.Close();
                 entrada.Close();
             }
