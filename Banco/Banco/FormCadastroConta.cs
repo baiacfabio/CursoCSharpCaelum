@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Banco.Busca;
 using Banco.Contas;
 using Banco.Usuarios;
 
@@ -15,6 +16,7 @@ namespace Banco
     public partial class FormCadastroConta : Form
     {
         private Form1 formPrincipal;
+        private ICollection<string> devedores;
 
         private string tipoConta;
         private string[] tiposContas = {"Conta Corrente", "Conta Poupança"};
@@ -23,25 +25,43 @@ namespace Banco
         {
             this.formPrincipal = formPrincipal;
             InitializeComponent();
+
+            GeradorDeDevedores gerador = new GeradorDeDevedores();
+            this.devedores = gerador.GeraList();
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
-            Conta conta = null;
-            if (this.tipoConta.Equals("Conta Corrente"))
+            string titular = textBoxTitular.Text;
+            bool ehDevedor = this.devedores.Contains(titular);
+
+            for (int i = 0; i < 30000; i++)
             {
-                conta = new ContaCorrente();
-            }
-            else if (this.tipoConta.Equals("Conta Poupança"))
-            {
-                conta = new ContaPoupanca();
+                ehDevedor = this.devedores.Contains(titular);
             }
 
+            if (!ehDevedor)
+            {
+                Conta conta = null;
+                if (this.tipoConta.Equals("Conta Corrente"))
+                {
+                    conta = new ContaCorrente();
+                }
+                else if (this.tipoConta.Equals("Conta Poupança"))
+                {
+                    conta = new ContaPoupanca();
+                }
 
-            conta.Titular = new Cliente(textBoxTitular.Text);
 
-            this.formPrincipal.AdicionaConta(conta);
-            this.Hide();
+                conta.Titular = new Cliente(textBoxTitular.Text);
+
+                this.formPrincipal.AdicionaConta(conta);
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("devedor");
+            }
         }
 
         private void FormCadastroConta_Load(object sender, EventArgs e)
