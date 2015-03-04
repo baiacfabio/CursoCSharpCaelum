@@ -30,6 +30,11 @@
         {
             this.textBoxConteudo = new System.Windows.Forms.TextBox();
             this.buttonGravar = new System.Windows.Forms.Button();
+            this.groupBoxFindReplace = new System.Windows.Forms.GroupBox();
+            this.buttonFind = new System.Windows.Forms.Button();
+            this.textBoxBusca = new System.Windows.Forms.TextBox();
+            this.labelFind = new System.Windows.Forms.Label();
+            this.groupBoxFindReplace.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxConteudo
@@ -37,12 +42,12 @@
             this.textBoxConteudo.Location = new System.Drawing.Point(13, 13);
             this.textBoxConteudo.Multiline = true;
             this.textBoxConteudo.Name = "textBoxConteudo";
-            this.textBoxConteudo.Size = new System.Drawing.Size(259, 201);
+            this.textBoxConteudo.Size = new System.Drawing.Size(259, 136);
             this.textBoxConteudo.TabIndex = 0;
             // 
             // buttonGravar
             // 
-            this.buttonGravar.Location = new System.Drawing.Point(13, 221);
+            this.buttonGravar.Location = new System.Drawing.Point(12, 208);
             this.buttonGravar.Name = "buttonGravar";
             this.buttonGravar.Size = new System.Drawing.Size(75, 23);
             this.buttonGravar.TabIndex = 1;
@@ -50,16 +55,57 @@
             this.buttonGravar.UseVisualStyleBackColor = true;
             this.buttonGravar.Click += new System.EventHandler(this.buttonGravar_Click);
             // 
+            // groupBoxFindReplace
+            // 
+            this.groupBoxFindReplace.Controls.Add(this.buttonFind);
+            this.groupBoxFindReplace.Controls.Add(this.textBoxBusca);
+            this.groupBoxFindReplace.Controls.Add(this.labelFind);
+            this.groupBoxFindReplace.Location = new System.Drawing.Point(94, 155);
+            this.groupBoxFindReplace.Name = "groupBoxFindReplace";
+            this.groupBoxFindReplace.Size = new System.Drawing.Size(178, 89);
+            this.groupBoxFindReplace.TabIndex = 2;
+            this.groupBoxFindReplace.TabStop = false;
+            this.groupBoxFindReplace.Text = "Find and Replace";
+            // 
+            // buttonFind
+            // 
+            this.buttonFind.Location = new System.Drawing.Point(95, 53);
+            this.buttonFind.Name = "buttonFind";
+            this.buttonFind.Size = new System.Drawing.Size(75, 23);
+            this.buttonFind.TabIndex = 3;
+            this.buttonFind.Text = "Find";
+            this.buttonFind.UseVisualStyleBackColor = true;
+            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
+            // 
+            // textBoxBusca
+            // 
+            this.textBoxBusca.Location = new System.Drawing.Point(55, 17);
+            this.textBoxBusca.Name = "textBoxBusca";
+            this.textBoxBusca.Size = new System.Drawing.Size(115, 20);
+            this.textBoxBusca.TabIndex = 1;
+            // 
+            // labelFind
+            // 
+            this.labelFind.AutoSize = true;
+            this.labelFind.Location = new System.Drawing.Point(7, 20);
+            this.labelFind.Name = "labelFind";
+            this.labelFind.Size = new System.Drawing.Size(27, 13);
+            this.labelFind.TabIndex = 0;
+            this.labelFind.Text = "Find";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.groupBoxFindReplace);
             this.Controls.Add(this.buttonGravar);
             this.Controls.Add(this.textBoxConteudo);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBoxFindReplace.ResumeLayout(false);
+            this.groupBoxFindReplace.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -69,6 +115,10 @@
 
         private System.Windows.Forms.TextBox textBoxConteudo;
         private System.Windows.Forms.Button buttonGravar;
+        private System.Windows.Forms.GroupBox groupBoxFindReplace;
+        private System.Windows.Forms.Button buttonFind;
+        private System.Windows.Forms.TextBox textBoxBusca;
+        private System.Windows.Forms.Label labelFind;
     }
 }
 

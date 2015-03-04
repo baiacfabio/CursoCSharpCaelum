@@ -40,5 +40,21 @@ namespace EditorDeTexto
 
             
         }
+
+        private void buttonFind_Click(object sender, EventArgs e)
+        {
+            string busca = textBoxBusca.Text;
+            string textoDoEditor = textBoxConteudo.Text;
+            
+            int resultado = textoDoEditor.IndexOf(busca);
+            if (resultado >= 0)
+            {
+                MessageBox.Show("Encontrado o texto: " + busca);
+            }
+            else
+            {
+                MessageBox.Show("Texto não encontrado");
+            }
+        }
     }
 }
